@@ -4,6 +4,10 @@ pipeline {
 //tools {
   //terraform 'Terraform_v1.2.7'
   //}
+environment {
+  ACCESS_KEY = credentials('access-key')
+  SECRET_KEY = credentials('secret-key')
+}
 
 stages{
     stage ('git checkout') {
@@ -21,7 +25,7 @@ stages{
      stage ('Terraform_Apply/Destroy') {
         steps {
     
-         sh "terraform ${action} --auto-approve" 
+         sh "terraform ${action} -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY--auto-approve" 
             }
          }
        }
