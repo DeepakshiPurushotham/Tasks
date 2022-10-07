@@ -23,7 +23,7 @@ resource "aws_lb" "alb" {
     ip_address_type = "ipv4"
     load_balancer_type = "application"
     security_groups = [aws_security_group.web-sg.id ]
-    subnets = data.aws_subnets.subnet.ids
+    subnets = data.aws_subnet_ids.subnet.ids
      tags = {
        "Name" = "alb"
      }
