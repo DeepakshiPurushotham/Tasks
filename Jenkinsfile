@@ -20,7 +20,10 @@ stages{
         
      stage ('Terraform_Apply/Destroy') {
         steps {
-          sh "terraform ${action} --auto-approve"
+            withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+    // some block
+  
+          sh "terraform ${action} --auto-approve" }  
             }
          }
        }
