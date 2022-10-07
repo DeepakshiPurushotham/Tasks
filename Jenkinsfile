@@ -25,7 +25,7 @@ stages{
      stage ('Terraform_Apply/Destroy') {
         steps {
     
-         sh "terraform ${action} -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY--auto-approve" 
+         sh "terraform ${action} -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' --auto-approve" 
             }
          }
        }
