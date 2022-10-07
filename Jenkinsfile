@@ -20,10 +20,8 @@ stages{
         
      stage ('Terraform_Apply/Destroy') {
         steps {
-          withCredentials([string(credentialsId: 'access-key', variable: 'access-key'), string(credentialsId: 'secret-key', variable: 'secret-key')]) {
-    // some block
-      sh "terraform ${action} -var="access_key=${access-key}" -var="secret_key=${secret-key}" --auto-approve"
-}
+    
+         sh "terraform ${action} --auto-approve" 
             }
          }
        }
