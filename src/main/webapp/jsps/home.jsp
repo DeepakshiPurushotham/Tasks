@@ -34,7 +34,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 		<img src="images/mithunlogo.jpg" alt="" width="100">
 	</span>
 	<span style="font-weight: bold;">
-		SRS Business Solution, 
+		SRS Business Solution Pvt.ltd 
 		147 K, 2nd Floor, 12th Main Rd, 3rd Block, 
 		Koramangala, 
 		Bengaluru, 
