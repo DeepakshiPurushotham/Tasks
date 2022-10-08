@@ -13,7 +13,7 @@ node{
     
     
     stage('Build Docker Image'){
-        sh 'docker build -t deepakshipurushotham/web-app:${buildNumber} .'
+        sh "docker build -t deepakshipurushotham/web-app:${buildNumber} ."
     }
     
     stage('Push Docker Image'){
@@ -21,14 +21,15 @@ node{
     // some block
        sh "docker login -u deepakshipurushotham -p ${Docker_pwd}"
      }
-        sh 'docker push deepakshipurushotham/web-app:${buildNumber}'
+        sh "docker push deepakshipurushotham/web-app:${buildNumber}"
      }
      
       stage('Run Docker Image In Dev Server'){
         
-        def dockerRun = ' docker run  -d -p 8080:8080 --name maven-web-app deepakshipurushotham/web-app:${buildNumber}'
+        def dockerRun = "docker run  -d -p 8080:8080 --name maven-web-app deepakshipurushotham/web-app:${buildNumber}"
          
-         sshagent(['DOCKER_SERVER']) {
+         sshagent(['Pem_key']) {
+    // some block
           sh 'ssh -o StrictHostKeyChecking=no ec2-user@44.208.25.186 docker stop maven-web-app || true'
           sh 'ssh  ec2-user@44.208.25.186 docker rm java-web-app || true'
           sh 'ssh  ec2-user@44.208.25.186 docker rmi -f  $(docker images -q) || true'
