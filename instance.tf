@@ -8,5 +8,18 @@ resource "aws_instance" "web-server" {
     tags = {
       "Name" = "web-${count.index}"
     }
-  
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = file("~/Desktop/Pemfile/Deepakshi.pem")
+    host     = aws_instance.web-server.public_ip
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo systemctl start docker"
+    ]
+    
+  }
 } 
+
+
