@@ -8,7 +8,7 @@ resource "aws_lb_target_group" "alb-tg" {
       healthy_threshold  = 3
       unhealthy_threshold = 2
     }
-    name = "alb-tg"
+    name = "TG"
     port = 8080
     protocol = "HTTP"
     target_type = "instance"
@@ -18,14 +18,14 @@ resource "aws_lb_target_group" "alb-tg" {
 
 # creating alb
 resource "aws_lb" "alb" {
-    name = "alb"
+    name = "alb-demo"
     internal = false
     ip_address_type = "ipv4"
     load_balancer_type = "application"
-    security_groups = [aws_security_group.web-sg.id ]
+    security_groups = [aws_security_group.new-web-sg.id ]
     subnets = data.aws_subnet_ids.subnet.ids
      tags = {
-       "Name" = "alb"
+       "Name" = "alb-demo"
      }
 }
 # listener creation

@@ -1,4 +1,4 @@
- resource "aws_db_instance" "rds" {
+ resource "aws_db_instance" "rds1" {
    allocated_storage   = 20
    storage_type        = "gp2"
    identifier          = "rdstf"
@@ -11,6 +11,6 @@
    skip_final_snapshot = true
 
    tags = {
-     Name = "RDS"
+     Name = "rds-demo"
    }
  }
