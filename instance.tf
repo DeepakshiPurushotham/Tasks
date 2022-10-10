@@ -12,7 +12,7 @@ resource "aws_instance" "web-server" {
     type     = "ssh"
     user     = "ec2-user"
     private_key = file("~/Desktop/Pemfile/Deepakshi.pem")
-    host     = aws_instance.web-server.public_ip
+    host     = aws_instance.web-server[0].public_ip
   }
   provisioner "remote-exec" {
     inline = [
