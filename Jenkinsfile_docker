@@ -30,10 +30,10 @@ node{
          
          sshagent(['Pem_key']) {
     // some block
-          sh 'ssh -o StrictHostKeyChecking=no ec2-user@34.238.119.75 docker stop maven-web-app || true'
-          sh 'ssh  ec2-user@34.238.119.75 docker rm maven-web-app || true'
-          sh 'ssh  ec2-user@34.238.119.75 docker rmi -f  $(docker images -q) || true'
-          sh "ssh  ec2-user@34.238.119.75 ${dockerRun}"
+          sh 'ssh -o StrictHostKeyChecking=no ec2-user@52.91.253.33 docker stop maven-web-app || true'
+          sh 'ssh  ec2-user@52.91.253.33 docker rm maven-web-app || true'
+          sh 'ssh  ec2-user@52.91.253.33 docker rmi -f  $(docker images -q) || true'
+          sh "ssh  ec2-user@52.91.253.33 ${dockerRun}"
        }
        
     }
